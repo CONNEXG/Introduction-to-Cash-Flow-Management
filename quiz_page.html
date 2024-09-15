@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow Management Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        #timer {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .question p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .options label {
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid transparent;
+        }
+        .options input {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1e6f98;
+            transform: translateY(-3px);
+        }
+        button:focus {
+            outline: none;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cash Flow Management Quiz</h1>
+        <div id="timer">Time left: <span id="timerValue">15:00</span></div>
+
+        <form id="quizForm">
+            <!-- Quiz Questions -->
+            <div class="question">
+                <p>1. What is described as the "lifeblood of a company"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A) Sales</label>
+                    <label><input type="radio" name="q1" value="B"> B) Cash flow</label>
+                    <label><input type="radio" name="q1" value="C"> C) Profit</label>
+                    <label><input type="radio" name="q1" value="D"> D) Investments</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. Why is effective cash flow management important?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> A) To increase customer satisfaction</label>
+                    <label><input type="radio" name="q2" value="B"> B) To improve product quality</label>
+                    <label><input type="radio" name="q2" value="C"> C) For the survival and growth of a business</label>
+                    <label><input type="radio" name="q2" value="D"> D) To reduce employee turnover</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. What does cash flow management involve?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A) Increasing sales prices</label>
+                    <label><input type="radio" name="q3" value="B"> B) Forecasting future cash needs</label>
+                    <label><input type="radio" name="q3" value="C"> C) Hiring more employees</label>
+                    <label><input type="radio" name="q3" value="D"> D) Reducing business hours</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. Which of the following is an example of a cash inflow?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> A) Loan repayment</label>
+                    <label><input type="radio" name="q4" value="B"> B) Operating costs</label>
+                    <label><input type="radio" name="q4" value="C"> C) Sales revenue</label>
+                    <label><input type="radio" name="q4" value="D"> D) Equipment purchase</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. Which of the following is considered a cash outflow?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> A) Sales</label>
+                    <label><input type="radio" name="q5" value="B"> B) Investments</label>
+                    <label><input type="radio" name="q5" value="C"> C) Capital expenditures</label>
+                    <label><input type="radio" name="q5" value="D"> D) Loans</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. How can proper cash flow management benefit a business?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> A) It reduces the need for marketing</label>
+                    <label><input type="radio" name="q6" value="B"> B) It allows for better hiring decisions</label>
+                    <label><input type="radio" name="q6" value="C"> C) It improves creditworthiness</label>
+                    <label><input type="radio" name="q6" value="D"> D) It eliminates the need for debt</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>7. What should businesses do to maintain a healthy cash balance?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> A) Focus only on inflows</label>
+                    <label><input type="radio" name="q7" value="B"> B) Ignore cash flow statements</label>
+                    <label><input type="radio" name="q7" value="C"> C) Understand inflows and outflows</label>
+                    <label><input type="radio" name="q7" value="D"> D) Reduce prices of products</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. What can a business avoid by managing its cash flow carefully?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> A) High customer demand</label>
+                    <label><input type="radio" name="q8" value="B"> B) Financial crises</label>
+                    <label><input type="radio" name="q8" value="C"> C) Employee layoffs</label>
+                    <label><input type="radio" name="q8" value="D"> D) Marketing expenses</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>9. What role does budgeting play in cash flow management?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> A) It increases revenue</label>
+                    <label><input type="radio" name="q9" value="B"> B) It helps in tracking expenses</label>
+                    <label><input type="radio" name="q9" value="C"> C) It boosts employee morale</label>
+                    <label><input type="radio" name="q9" value="D"> D) It reduces operational costs</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>10. Which strategy is effective for forecasting cash flow?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> A) Overestimating income</label>
+                    <label><input type="radio" name="q10" value="B"> B) Decreasing expenses</label>
+                    <label><input type="radio" name="q10" value="C"> C) Accurate forecasting</label>
+                    <label><input type="radio" name="q10" value="D"> D) Maximizing profits</label>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Timer script
+        let timerValue = document.getElementById('timerValue');
+        let timeRemaining = 15 * 60; // 15 minutes in seconds
+
+        function updateTimer() {
+            let minutes = Math.floor(timeRemaining / 60);
+            let seconds = timeRemaining % 60;
+            if (seconds < 10) seconds = '0' + seconds;
+            timerValue.textContent = `${minutes}:${seconds}`;
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('quizForm').submit();
+            } else {
+                timeRemaining--;
+            }
+        }
+
+        let timerInterval = setInterval(updateTimer, 1000);
+
+        // Form submission and results handling
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Calculate score
+            let score = 0;
+            let totalQuestions = 10;
+            let answers = {
+                q1: 'B',
+                q2: 'C',
+                q3: 'B',
+                q4: 'C',
+                q5: 'C',
+                q6: 'C',
+                q7: 'C',
+                q8: 'B',
+                q9: 'B',
+                q10: 'C'
+            };
+
+            for (let key in answers) {
+                let selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (selected && selected.value === answers[key]) {
+                    score++;
+                }
+            }
+
+            let userScore = (score / totalQuestions) * 100;
+
+            // Redirect based on score
+            if (score >= 7) { // Pass mark is 7 out of 10
+                // Redirect to a page with a congratulatory message and payment or certificate option
+                window.location.href = `result.html?score=${userScore}&result=pass`;
+            } else {
+                window.location.href = 'result.html?score=' + userScore + '&result=fail';
+            }
+        });
+    </script>
+</body>
+</html>

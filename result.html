@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #2980b9;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #1e6f98;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="resultHeading"></h1>
+        <p id="resultMessage"></p>
+        <a id="actionButton" href="#">Action</a>
+    </div>
+
+    <script>
+        // Get the score and result from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+        const result = urlParams.get('result');
+
+        const resultHeading = document.getElementById('resultHeading');
+        const resultMessage = document.getElementById('resultMessage');
+        const actionButton = document.getElementById('actionButton');
+
+        if (result === 'pass') {
+            resultHeading.textContent = 'Congratulations!';
+            resultMessage.textContent = `You scored ${score}%. You have passed the exam.`;
+            actionButton.textContent = 'Click on button to get the certificate';
+            actionButton.href = 'payment.html';
+        } else {
+            resultHeading.textContent = 'Sorry!';
+            resultMessage.textContent = `You scored ${score}%.Unfortunately, you have failed the exam. Please reappear for the exam..`;
+            actionButton.textContent = 'Retry';
+            actionButton.href = 'payment_page.html';
+        }
+    </script>
+</body>
+</html>
