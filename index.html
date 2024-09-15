@@ -205,62 +205,73 @@
     </div>
 
     <script>
-        // Timer script
-        let timerValue = document.getElementById('timerValue');
-        let timeRemaining = 15 * 60; // 15 minutes in seconds
+    // Timer script
+    let timerValue = document.getElementById('timerValue');
+    let timeRemaining = 15 * 60; // 15 minutes in seconds
 
-        function updateTimer() {
-            let minutes = Math.floor(timeRemaining / 60);
-            let seconds = timeRemaining % 60;
-            if (seconds < 10) seconds = '0' + seconds;
-            timerValue.textContent = `${minutes}:${seconds}`;
-            if (timeRemaining <= 0) {
-                clearInterval(timerInterval);
-                document.getElementById('quizForm').submit();
-            } else {
-                timeRemaining--;
+    function updateTimer() {
+        let minutes = Math.floor(timeRemaining / 60);
+        let seconds = timeRemaining % 60;
+        if (seconds < 10) seconds = '0' + seconds;
+        timerValue.textContent = `${minutes}:${seconds}`;
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('quizForm').submit();
+        } else {
+            timeRemaining--;
+        }
+    }
+
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    // Form submission and results handling
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Calculate score
+        let score = 0;
+        let totalQuestions = 10;
+        let answers = {
+            q1: 'B',
+            q2: 'C',
+            q3: 'B',
+            q4: 'C',
+            q5: 'C',
+            q6: 'C',
+            q7: 'C',
+            q8: 'B',
+            q9: 'B',
+            q10: 'C'
+        };
+
+        for (let key in answers) {
+            let selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected && selected.value === answers[key]) {
+                score++;
             }
         }
 
-        let timerInterval = setInterval(updateTimer, 1000);
+        let userScore = (score / totalQuestions) * 100;
 
-        // Form submission and results handling
-        document.getElementById('quizForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // Redirect based on score
+        if (score >= 7) { // Pass mark is 7 out of 10
+            // Redirect to a page with a congratulatory message and payment or certificate option
+            window.location.href = `result.html?score=${userScore}&result=pass`;
+        } else {
+            // Fail - Show retry button
+            let retryButton = document.createElement("button");
+            retryButton.textContent = "Retry";
+            retryButton.style.cssText = "margin-top: 20px; background-color: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer;";
 
-            // Calculate score
-            let score = 0;
-            let totalQuestions = 10;
-            let answers = {
-                q1: 'B',
-                q2: 'C',
-                q3: 'B',
-                q4: 'C',
-                q5: 'C',
-                q6: 'C',
-                q7: 'C',
-                q8: 'B',
-                q9: 'B',
-                q10: 'C'
-            };
+            retryButton.addEventListener('click', function() {
+                location.reload(); // Reload the page
+            });
 
-            for (let key in answers) {
-                let selected = document.querySelector(`input[name="${key}"]:checked`);
-                if (selected && selected.value === answers[key]) {
-                    score++;
-                }
-            }
+            // Append the retry button to the form or container
+            document.querySelector('.container').appendChild(retryButton);
+        }
+    });
+</script>
 
-            let userScore = (score / totalQuestions) * 100;
-
-            // Redirect based on score
-            if (score >= 7) { // Pass mark is 7 out of 10
-                // Redirect to a page with a congratulatory message and payment or certificate option
-                window.location.href = `result.html?score=${userScore}&result=pass`;
-            } else {
-                window.location.href = 'result.html?score=' + userScore + '&result=fail';
-            }
-        });
-    </script>
 </body>
 </html>
